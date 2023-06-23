@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class GameGenre {
+public final class GameGenre {
     private static final Map<String, GameGenre> instances = new HashMap<>();
     private final String description;
 
