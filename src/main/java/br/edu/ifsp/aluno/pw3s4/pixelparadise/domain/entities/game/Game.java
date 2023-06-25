@@ -1,10 +1,10 @@
 package br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.entities.game;
 
 import java.time.LocalDate;
-import java.util.Objects;
 import java.util.UUID;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashSet;
 import java.util.Iterator;
 
 public class Game {
@@ -12,8 +12,8 @@ public class Game {
     private String title;
     private LocalDate releaseDate;
     private int minimumAge;
-    private final List<GamePlatform> platforms = new ArrayList<>();
-    private final List<GameGenre> genres = new ArrayList<>();
+    private final Set<GamePlatform> platforms = new HashSet<>();
+    private final Set<GameGenre> genres = new HashSet<>();
 
     public Game(UUID id, String title, LocalDate releaseDate, int minimumAge) {
         this.id = id;
