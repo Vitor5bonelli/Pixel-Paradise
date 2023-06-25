@@ -7,14 +7,14 @@ import java.util.UUID;
 
 public class UserAccount {
     private UUID id;
-    private final String username;
+    private String username;
     private Password password;
     private final Set<UserPermission> permissions = new HashSet<>();
 
     public UserAccount(UUID id, String username, Password password) {
         this.id = id;
-        this.username = username;
-        this.password = password;
+        setUsername(username);
+        setPassword(password);
     }
 
     public UserAccount(String username, Password password) {
@@ -44,6 +44,8 @@ public class UserAccount {
     }
 
     public final void setId(UUID id) {
+        Objects.requireNonNull(id);
+
         this.id = id;
     }
 
@@ -51,11 +53,22 @@ public class UserAccount {
         return username;
     }
 
+    public void setUsername(String username) {
+        Objects.requireNonNull(username);
+
+        if (username.isEmpty())
+            throw new IllegalArgumentException("Username cannot be an empty string!");
+
+        this.username = username;
+    }
+
     public final Password getPassword() {
         return password;
     }
 
     public final void setPassword(Password password) {
+        Objects.requireNonNull(password);
+
         this.password = password;
     }
 }
