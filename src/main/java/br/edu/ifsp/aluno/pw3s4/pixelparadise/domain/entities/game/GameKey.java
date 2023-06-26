@@ -4,12 +4,12 @@ import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.entities.customer.Customer;
 
 import java.util.Objects;
 
-public class GameItem {
+public class GameKey {
     private Game game;
     private Customer customer;
     private long priceInCents;
 
-    public GameItem(Game game, Customer customer, long priceInCents) {
+    public GameKey(Game game, Customer customer, long priceInCents) {
         setGame(game);
         setCustomer(customer);
         setPriceInCents(priceInCents);
