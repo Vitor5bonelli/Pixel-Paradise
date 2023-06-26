@@ -12,22 +12,24 @@ public class Game {
     private String title;
     private LocalDate releaseDate;
     private int minimumAge;
+    private long priceInCents;
     private final Set<GamePlatform> platforms = new HashSet<>();
     private final Set<GameGenre> genres = new HashSet<>();
 
-    public Game(UUID id, String title, LocalDate releaseDate, int minimumAge) {
+    public Game(UUID id, String title, LocalDate releaseDate, int minimumAge, long priceInCents) {
         this.id = id;
         setTitle(title);
         setReleaseDate(releaseDate);
         setMinimumAge(minimumAge);
+        setPriceInCents(priceInCents);
     }
 
-    public Game(String title, LocalDate releaseDate, int minimumAge) {
-        this(null, title, releaseDate, minimumAge);
+    public Game(String title, LocalDate releaseDate, int minimumAge, long priceInCents) {
+        this(null, title, releaseDate, minimumAge, priceInCents);
     }
 
-    public Game(String title, LocalDate releaseDate) {
-        this(null, title, releaseDate, 0);
+    public Game(String title, LocalDate releaseDate, long priceInCents) {
+        this(null, title, releaseDate, 0, priceInCents);
     }
 
     public final boolean hasAgeRestriction() {
@@ -129,5 +131,15 @@ public class Game {
         if (minimumAge < 0)
             throw new IllegalArgumentException("The minimum age must be a non-negative number!");
         this.minimumAge = minimumAge;
+    }
+
+    public long getPriceInCents() {
+        return priceInCents;
+    }
+
+    public void setPriceInCents(long priceInCents) {
+        if (priceInCents < 0)
+            throw new IllegalArgumentException("Price must be a non-negative number!");
+        this.priceInCents = priceInCents;
     }
 }
