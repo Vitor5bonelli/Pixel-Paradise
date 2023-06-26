@@ -8,17 +8,19 @@ import java.util.UUID;
 public class UserAccount {
     private UUID id;
     private String username;
+    private String email;
     private Password password;
     private final Set<UserPermission> permissions = new HashSet<>();
 
-    public UserAccount(UUID id, String username, Password password) {
+    public UserAccount(UUID id, String username, String email, Password password) {
         this.id = id;
         setUsername(username);
+        setEmail(email);
         setPassword(password);
     }
 
-    public UserAccount(String username, Password password) {
-        this(null, username, password);
+    public UserAccount(String username, String email, Password password) {
+        this(null, username, email, password);
     }
 
     public final boolean hasPermission(UserPermission permission) {
@@ -53,13 +55,26 @@ public class UserAccount {
         return username;
     }
 
-    public void setUsername(String username) {
+    private void setUsername(String username) {
         Objects.requireNonNull(username);
 
         if (username.isEmpty())
             throw new IllegalArgumentException("Username cannot be an empty string!");
 
         this.username = username;
+    }
+
+    public final String getEmail() {
+        return email;
+    }
+
+    private void setEmail(String email) {
+        Objects.requireNonNull(email);
+
+        if (email.isEmpty())
+            throw new IllegalArgumentException("Email cannot be an empty string!");
+
+        this.email = email;
     }
 
     public final Password getPassword() {
