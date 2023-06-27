@@ -1,0 +1,61 @@
+body{
+    background: linear-gradient(blue, rgb(255, 72, 102), purple);
+    height: 2000px ;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+li{
+    float: left;
+}
+
+li a{
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.ativo) {
+    background-color: black;
+    color: white;
+}   
+
+li a.ativo{
+    color: white;
+    background: linear-gradient(black, blue);
+}
+
+h1{
+    text-align: center;
+}
+
+h2{
+    margin-left: 10px;
+}
+
+button{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.wall{
+    margin-left: auto;
+    margin-top: 50px;
+    margin-right: auto;
+    background-color: #f3f3f3;
+    width: 700px;
+    height: 1000px;
+}
+  
+.wall h2{
+    text-align: center;
+}

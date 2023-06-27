@@ -1,0 +1,74 @@
+body{
+    background: linear-gradient(black, blue, rgb(255, 72, 102), purple);
+    height: 2000px ;
+}
+
+img{
+    width: 250px;
+    height: 300px;
+}
+
+.navegador{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+#id_navegador{
+    float: left;
+}
+
+#id_navegador a{
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;    
+}
+
+#id_navegador a:hover:not(.ativo){
+    background-color: black;
+    color: white;
+}
+
+#id_navegador a.ativo{
+    color: white;
+    background: linear-gradient(black, blue);
+}
+
+#cabecalho{
+    background-color: aliceblue;
+    opacity: 80%;
+    text-align: center;
+    margin-bottom: 10px;
+    height: 90px;
+}
+
+.livro{
+    display: inline-flex;
+}
+
+#exposicao{
+    margin-left: 80px;
+    border: solid black;
+}
+
+.showGames{
+    background-color: white;
+    border: solid black;
+    width: 1000px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.showGames h2, p{
+    text-align: center;
+}
+
+.buyOrCell{
+    margin-left: 400px;
+}

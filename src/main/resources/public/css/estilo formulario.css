@@ -1,0 +1,28 @@
+#painel{
+    background-color: white;
+    opacity: 90%;
+    height: auto;
+    width: 900px;
+    margin: 10px auto 10px auto;
+}
+
+#cliente, #cpf, #email, #telefone, #profissao, #rua, #Nro, #cep{
+    width: 470px;
+}
+
+h1{
+    text-align: center;
+}
+
+#formulario{
+    margin-left: 10px;
+}
+
+form{
+    margin-left: 10px;
+}
+
+button{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
