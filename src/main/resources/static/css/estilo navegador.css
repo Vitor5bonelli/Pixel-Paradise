@@ -1,5 +1,5 @@
 body{
-    background: linear-gradient(purple,rgb(255, 72, 102), blue, black);
+    background: linear-gradient(black, blue, rgb(255, 72, 102), purple);
     height: 2000px ;
 }
 
@@ -44,11 +44,11 @@ ul, ol{
 }
 
 #cabecalho{
-    background-color: aliceblue;
+    color: white;
     opacity: 80%;
     text-align: center;
     margin-bottom: 10px;
-    height: 90px;
+    height: auto;
 }
 
 .livro{
