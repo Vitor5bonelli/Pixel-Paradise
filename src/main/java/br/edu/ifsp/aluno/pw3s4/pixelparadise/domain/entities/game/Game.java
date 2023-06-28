@@ -1,11 +1,12 @@
 package br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.entities.game;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.time.LocalDate;
 import java.util.UUID;
 import java.util.Objects;
 import java.util.Set;
 import java.util.HashSet;
-import java.util.Iterator;
 
 public class Game {
     private UUID id;
@@ -63,8 +64,8 @@ public class Game {
         platforms.remove(platform);
     }
 
-    public final Iterator<GamePlatform> getPlatformsIterator() {
-        return platforms.iterator();
+    public final List<GamePlatform> getPlatformsList() {
+        return new ArrayList<>(platforms);
     }
 
     public final boolean hasGenre(GameGenre genre) {
@@ -86,8 +87,8 @@ public class Game {
         genres.remove(genre);
     }
 
-    public final Iterator<GameGenre> getGenresIterator() {
-        return genres.iterator();
+    public final List<GameGenre> getGenresList() {
+        return new ArrayList<>(genres);
     }
 
     public final UUID getId() {
@@ -104,7 +105,7 @@ public class Game {
         return title;
     }
 
-    public final void setTitle(String title) {
+    private final void setTitle(String title) {
         Objects.requireNonNull(title);
 
         if (title.isEmpty())
