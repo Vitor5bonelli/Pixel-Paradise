@@ -1,11 +1,15 @@
 body{
-    background: linear-gradient(black, blue, rgb(255, 72, 102), purple);
+    background: linear-gradient(purple,rgb(255, 72, 102), blue, black);
     height: 2000px ;
 }
 
 img{
     width: 250px;
     height: 300px;
+}
+
+ul, ol{
+    list-style-type: none;
 }
 
 .navegador{
@@ -71,4 +75,19 @@ img{
 
 .buyOrCell{
     margin-left: 400px;
+}
+
+
+#MainGames{
+    text-align: center;
+    background-color: white;
+    opacity: 70%;
+}
+
+#logo{
+    margin-top: 10px;
+    height: 300px;
+    width: 500px;
+    margin-left:500px;
+    box-shadow: 0 0 10px rgb(254, 0, 207);
 }
