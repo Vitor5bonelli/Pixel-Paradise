@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/register")
-public class RegisterPageController {
+public class RegisterCustomerPageController {
 
     @GetMapping
-    public String carregaPagina(){
+    public String loadPage(){
         return  "public/Register";
     }
 
@@ -22,10 +22,11 @@ public class RegisterPageController {
     }
 
     @PostMapping
-    public String realizarCadastro(CustomerDTO dadosCliente){
+    public String registerCustomer(CustomerDTO customerData){
         System.out.println("Realizou Cadastro");
 
         /*
+        Customer customer =
         cadastro = validarCadastro(dadosCliente);
 
         if(cadastro==true): return "public/Login";
