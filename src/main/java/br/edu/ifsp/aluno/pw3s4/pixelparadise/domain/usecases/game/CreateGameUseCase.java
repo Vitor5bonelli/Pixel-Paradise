@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Objects;
 import java.util.UUID;
-
+@Service
 public final class CreateGameUseCase {
     private final GameRepository gameRepository;
 

@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home page</title>
-    <link rel="stylesheet" href="../../static/css/estilo%20navegador.css">
+    <link rel="stylesheet" th:href="@{css/estilo navegador.css}">
 
     <style>
         body{
             font-family: 'Press Start 2P', cursive;
             font-size: small;
         }
-
     </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,11 +20,11 @@
 <body>
     <div>
         <ul class="navegador">
-            <li id="id_navegador" class="botaoLogin"><a href="loginPage.html" class="ativo">Login</a></li>
+            <li id="id_navegador" class="botaoLogin"><a th:href="@{login}" class="ativo">Login</a></li>
         </ul>
     </div>
 
-    <img src="../../static/img/Logo.jpeg" id="logo">
+    <img th:src="@{img/Logo.jpeg}" id="logo">
 
     <div id="cabecalho">
         <h1>Olá <i>"Player"</i></h1>
@@ -40,18 +39,22 @@
         </div>
 
         <ul class="livro">
-            <li id="exposicao"><img src="../../static/img/Devil%20May%20Cry.jpg"></li>
-            <li id="exposicao"><img src="../../static/img/Skyrim.jpg"></li>
-            <li id="exposicao"><img src="../../static/img/Spider%20Man.jpg"></li>
-            <li id="exposicao"><img src="../../static/img/Dragon%20Ball%20kakarot.jpg"></li>
+            <li id="exposicao"><img th:src="@{img/Devil May Cry.jpg}"></li>
+            <li id="exposicao"><img th:src="@{img/Skyrim.jpg}"></li>
+            <li id="exposicao"><img th:src="@{img/Spider Man.jpg}"></li>
+            <li id="exposicao"><img th:src="@{img/Dragon Ball kakarot.jpg}"></li>
         </ul>
 
         <ul class="livro">
-            <li id="exposicao"><img src="../../static/img/AC%20Valhalla.jpg"></li>
-            <li id="exposicao"><img src="../../static/img/Red%20Dead%20Redeption%202.jpg"></li>
-            <li id="exposicao"><img src="../../static/img/AC%20Odyssey.jpg"></li>
-            <li id="exposicao"><img src="../../static/img/AC%20Black%20Flag.jpg"></li>
+            <li id="exposicao"><img th:src="@{img/AC Valhalla.jpg}"></li>
+            <li id="exposicao"><img th:src="@{img/Red Dead Redeption 2.jpg}"></li>
+            <li id="exposicao"><img th:src="@{img/AC Odyssey.jpg}"></li>
+            <li id="exposicao"><img th:src="@{img/AC Black Flag.jpg}"></li>
         </ul>
-    </div>    
+    </div>
+
+    <div class="listeGames">
+
+    </div>
 </body>
 </html>

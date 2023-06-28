@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Área do Funcionário</title>
 
-    <link rel="stylesheet" href="../../static/css/style%20functionary.css">
+    <link rel="stylesheet" th:href="@{css/style functionary.css}">
 
     <style>
         body{
@@ -25,29 +25,42 @@
 <body>
     <div class="main">
         <h2>Cadastrar jogo</h2>
-        <input type="text" id="name" placeholder="Nome do Jogo">
+        <input type="text" class="formInput" placeholder="Nome do Jogo" name="title">
         <br>
-        <input type="text" id="price" placeholder="Preço">
+        <input type="text" class="formInput" placeholder="Data de Lançamento" name="releaseDate">
         <br>
-        
+        <input type="text" class="formInput" placeholder="Restrição de Idade" name="minimumAge">
+        <br>
+        <input type="text" class="formInput" placeholder="Preço" name="priceInCents">
+        <br>
+        <input type="text" class="formInput" placeholder="Plataforma" name="platforms[]">
+        <br>
+        <input type="text" class="formInput" placeholder="Generos" name="genres[]">
+        <br>
+
         <hr>
 
         <h2>Atualizar Jogo</h2>
-        <input type="text" id="name" placeholder="Nome do Jogo">
+        <input type="text" class="formInput"  placeholder="Nome do Jogo">
         <br>
-        <input type="text" id="price" placeholder="Preço">
+        <input type="text" class="formInput" placeholder="Data de Lançamento">
+        <br>
+        <input type="text" class="formInput" placeholder="Restrição de Idade">
+        <br>
+        <input type="text" class="formInput" placeholder="Preço">
+        <br>
 
         <hr>
 
         <h2>Atualizar Funcionário</h2>
         
-        <input type="text" id="id" placeholder="ID">
+        <input type="text" class="formInput" placeholder="ID">
         <br>
-        <input type="text" id="nameF" placeholder="Nome">
+        <input type="text" class="formInput" placeholder="Nome">
         <br>
-        <input type="text" id="phone" placeholder="Telefone">
+        <input type="text" class="formInput" placeholder="Telefone">
         <br>
-        <input type="text" id="address" placeholder="Endereço">
+        <input type="text" class="formInput" placeholder="Endereço">
 
         <br><br>
 
@@ -64,8 +77,6 @@
         </button>
 
         <br>
-          
-
     </div>
 </body>
 

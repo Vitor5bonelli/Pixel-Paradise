@@ -5,12 +5,14 @@ import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.usecases.game.GameRepository
 import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.usecases.util.EntityAlreadyExistsException;
 import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.usecases.util.EntityNotFoundException;
 import org.springframework.data.domain.Example;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+@Repository
 public class GameRepositoryImpl implements GameRepository {
     private final GameDAO gameDAO;
 

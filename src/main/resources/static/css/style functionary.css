@@ -36,11 +36,11 @@ input{
     color: black;
 }
 
-#id, #nameF, #phone, #address, #name, #price{
-    margin-left: 400px;
+.formInput{
+    align-content: center;
 }
 
-#id:focus, #nameF:focus, #phone:focus, #address:focus, #name:focus  , #price:focus{
+.formInput:focus{
     transform: scale(1.1);
     box-shadow: 0 0 15px blue;
     color: white;
