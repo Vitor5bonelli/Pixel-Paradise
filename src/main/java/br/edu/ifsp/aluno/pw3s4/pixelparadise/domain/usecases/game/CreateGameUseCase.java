@@ -10,6 +10,7 @@ import java.util.UUID;
 
 @Service
 public final class CreateGameUseCase {
+    /*
     private final GameRepository gameRepository;
 
     public CreateGameUseCase(GameRepository gameRepository) {
@@ -36,5 +37,5 @@ public final class CreateGameUseCase {
         gameRepository.save(GameDTOConverter.gameToDTO(game));
 
         return gameId;
-    }
+    }*/
 }

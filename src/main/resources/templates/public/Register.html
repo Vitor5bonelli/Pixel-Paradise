@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="css/login.css">
+    <title>Register Page</title>
+    <link rel="stylesheet" th:href="@{css/login.css}">
 </head>
 <body>    
-    <form action="" class="form_main">
+    <form class="form_main" method="post">
         <p class="heading">Register</p>
 
         <div class="inputContainer">
@@ -46,13 +46,10 @@
         </div>
                 
         <button id="button">Submit</button>
-            <a class="forgotLink" href="loginPage.html">Back</a>
+
+        <a class="forgotLink" th:href="@{login}">Back</a>
     </form>
-    
-
-
-    
-    
 
 </body>
+
 </html>

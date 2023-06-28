@@ -16,9 +16,9 @@ public class CreateGameValidator extends Validator<CreateGameDTO> {
             notification.addMessage("Game title cannot be null or empty!");
         if (createGameDTO.releaseDate() == null)
             notification.addMessage("Release date is a mandatory data!");
-        if (createGameDTO.platforms().length == 0)
+        if (createGameDTO.platforms().size() == 0)
             notification.addMessage("At least one platform is needed!");
-        if (createGameDTO.genres().length == 0)
+        if (createGameDTO.genres().size() == 0)
             notification.addMessage("At least one genre is needed!");
 
         return notification;
