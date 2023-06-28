@@ -1,5 +1,7 @@
 package br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.entities.customer;
 
+import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.usecases.customer.CustomerDTO;
+
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.UUID;
@@ -14,6 +16,12 @@ public class Customer {
         this.id = id;
         setNickname(nickname);
         setDateOfBirth(dateOfBirth);
+    }
+
+    public Customer(CustomerDTO values){
+        this.id = values.id();
+        setNickname(values.nickname());
+        setDateOfBirth(values.dateOfBirth());
     }
 
     public Customer(String nickname, LocalDate dateOfBirth) {
