@@ -26,7 +26,7 @@ public final class CreateGameUseCase {
 
         Game game = GameDTOConverter.getGameFromCreateGameDTO(createGameDTO);
 
-        if (!gameRepository.existsByTitleAndReleaseDate(game.getTitle(), game.getReleaseDate()))
+        if (gameRepository.existsByTitleAndReleaseDate(game.getTitle(), game.getReleaseDate()))
             throw new EntityAlreadyExistsException("There already is a game with such title!");
 
         UUID gameId = UUID.randomUUID();

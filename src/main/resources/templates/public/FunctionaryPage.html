@@ -25,18 +25,34 @@
 <body>
     <div class="main">
         <h2>Cadastrar jogo</h2>
-        <input type="text" class="formInput" placeholder="Nome do Jogo" name="title">
-        <br>
-        <input type="text" class="formInput" placeholder="Data de Lançamento" name="releaseDate">
-        <br>
-        <input type="text" class="formInput" placeholder="Restrição de Idade" name="minimumAge">
-        <br>
-        <input type="text" class="formInput" placeholder="Preço" name="priceInCents">
-        <br>
-        <input type="text" class="formInput" placeholder="Plataforma" name="platforms[]">
-        <br>
-        <input type="text" class="formInput" placeholder="Generos" name="genres[]">
-        <br>
+
+        <form  method="post" action="/ControleFuncionario">
+            <input type="text" class="formInput" placeholder="Nome do Jogo" name="title">
+            <br>
+            <input type="date" class="formInput" placeholder="Data de Lançamento" name="releaseDate">
+            <br>
+            <input type="text" class="formInput" placeholder="Restrição de Idade" name="minimumAge">
+            <br>
+            <input type="text" class="formInput" placeholder="Preço" name="priceInCents">
+            <br>
+            <input type="text" class="formInput" placeholder="Plataforma" name="platforms[]">
+            <br>
+            <input type="text" class="formInput" placeholder="Generos" name="genres[]">
+            <br>
+
+            <button class="btn" type="submit">
+                <strong>ENVIAR</strong>
+                <div id="container-stars">
+                    <div id="stars"></div>
+                </div>
+
+                <div id="glow">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </button>
+        </form>
+
 
         <hr>
 
@@ -63,18 +79,6 @@
         <input type="text" class="formInput" placeholder="Endereço">
 
         <br><br>
-
-        <button class="btn" type="button">
-            <strong>ENVIAR</strong>
-            <div id="container-stars">
-              <div id="stars"></div>
-            </div>
-          
-            <div id="glow">
-              <div class="circle"></div>
-              <div class="circle"></div>
-            </div>
-        </button>
 
         <br>
     </div>

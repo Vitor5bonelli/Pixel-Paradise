@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,8 +53,32 @@
         </ul>
     </div>
 
-    <div class="listeGames">
+    <div class="listGames">
+        <table>
+            <thead>
+            <tr>
+                <th>NOME</th>
+                <th>ANO</th>
+                <th>RESTRIÇÃO</th>
+                <th>PREÇO</th>
+            </tr>
+            </thead>
+            <tbody th:each="game : ${listGames}">
+                <tr>
+                    <td th:text="${game.title}"></td>
+                    <td th:text="${game.releaseDate}"></td>
+                    <td th:text="${game.minimumAge}"></td>
+                    <td th:text="${game.priceInCents}"></td>
+                </tr>
+            </tbody>
 
+        <!--
+        <span>Plataformas Disponíveis</span>
+        <span th:text="${game.nome}"></span>
+
+        <span>Gêneros</span>
+        <span th:text="${game.nome}"></span>
+        -->
     </div>
 </body>
 </html>
