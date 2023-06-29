@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/register")
+@RequestMapping("/registercustomer")
 public class RegisterCustomerPageController {
 
     @GetMapping
     public String loadPage(){
-        return  "public/Register";
+        return  "public/RegisterClient";
     }
 
     @GetMapping("css/login.css")
