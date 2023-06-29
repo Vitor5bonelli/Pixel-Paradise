@@ -29,16 +29,7 @@ public final class CreateEmployeeUseCase {
     }
 
     public UUID createEmployee(CreateEmployeeDTO createEmployeeDTO, CreateUserAccountDTO createUserAccountDTO) {
-        Objects.requireNonNull(createEmployeeDTO);
-
-        CreateEmployeeValidator validator = new CreateEmployeeValidator();
-        Notification notification = validator.validate(createEmployeeDTO);
-        
-        if (notification.hasMessages())
-            throw new IllegalArgumentException(notification.getMessagesAsString());
-
-        if (employeeRepository.existsByCPF(createEmployeeDTO.cpf()))
-            throw new EntityAlreadyExistsException("There already is an employee with such CPF!");
+        validateDTO(createEmployeeDTO);
 
         UUID accountId = createUserAccountUseCase.createEmployeeAccount(createUserAccountDTO);
         RequestUserAccountDTO userAccountDTO = userAccountRepository.findOneByKey(accountId)
@@ -46,12 +37,41 @@ public final class CreateEmployeeUseCase {
                         "the account!"));
         UserAccount userAccount = UserAccountDTOConverter.fromRequestDTO(userAccountDTO, passwordEncoder);
 
+        return saveEmployee(createEmployeeDTO, userAccount);
+    }
+
+    public UUID createAdmin(CreateEmployeeDTO createEmployeeDTO, CreateUserAccountDTO createUserAccountDTO) {
+        validateDTO(createEmployeeDTO);
+
+        UUID accountId = createUserAccountUseCase.createAdminAccount(createUserAccountDTO);
+        RequestUserAccountDTO userAccountDTO = userAccountRepository.findOneByKey(accountId)
+                .orElseThrow(() -> new IllegalArgumentException("Something happened while trying to create " +
+                        "the account!"));
+        UserAccount userAccount = UserAccountDTOConverter.fromRequestDTO(userAccountDTO, passwordEncoder);
+
+        return saveEmployee(createEmployeeDTO, userAccount);
+    }
+
+    private void validateDTO(CreateEmployeeDTO createEmployeeDTO) {
+        Objects.requireNonNull(createEmployeeDTO);
+
+        CreateEmployeeValidator validator = new CreateEmployeeValidator();
+        Notification notification = validator.validate(createEmployeeDTO);
+
+        if (notification.hasMessages())
+            throw new IllegalArgumentException(notification.getMessagesAsString());
+
+        if (employeeRepository.existsByCPF(createEmployeeDTO.cpf()))
+            throw new EntityAlreadyExistsException("There already is an employee with such CPF!");
+    }
+
+    private UUID saveEmployee(CreateEmployeeDTO createEmployeeDTO, UserAccount userAccount) {
         Employee employee = EmployeeDTOConverter.fromCreateEmployeeDTO(createEmployeeDTO);
         employee.setAccount(userAccount);
         UUID employeeId = UUID.randomUUID();
 
         employeeRepository.save(EmployeeDTOConverter.toDTO(employee));
-        
+
         return employeeId;
     }
 }
