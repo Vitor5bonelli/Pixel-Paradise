@@ -1,6 +1,7 @@
 package br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.usecases.account;
 
 import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.usecases.util.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.UUID;
