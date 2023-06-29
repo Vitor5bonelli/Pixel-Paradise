@@ -1,9 +1,13 @@
 package br.edu.ifsp.aluno.pw3s4.pixelparadise.persistence.customer;
 
+import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.usecases.account.RequestUserAccountDTO;
+import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.usecases.account.UserAccountRepository;
 import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.usecases.customer.CustomerDTO;
 import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.usecases.customer.CustomerRepository;
 import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.usecases.util.EntityAlreadyExistsException;
 import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.usecases.util.EntityNotFoundException;
+import br.edu.ifsp.aluno.pw3s4.pixelparadise.persistence.useraccount.UserAccountModel;
+import br.edu.ifsp.aluno.pw3s4.pixelparadise.persistence.useraccount.UserAccountModelConverter;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Repository;
 
@@ -15,9 +19,11 @@ import java.util.UUID;
 @Repository
 public class CustomerRepositoryImpl implements CustomerRepository {
     private final CustomerDAO customerDAO;
+    private final UserAccountRepository userAccountRepository;
 
-    public CustomerRepositoryImpl(CustomerDAO customerDAO) {
+    public CustomerRepositoryImpl(CustomerDAO customerDAO, UserAccountRepository userAccountRepository) {
         this.customerDAO = customerDAO;
+        this.userAccountRepository = userAccountRepository;
     }
 
     @Override
@@ -27,7 +33,9 @@ public class CustomerRepositoryImpl implements CustomerRepository {
         if (existsByKey(entityDTO.id()))
             throw new EntityAlreadyExistsException("There already is such customer!");
 
-        customerDAO.save(CustomerModelConverter.fromDTO(entityDTO));
+        UserAccountModel userAccountModel = findUserAccountModel(entityDTO.accountId());
+
+        customerDAO.save(CustomerModelConverter.fromDTO(entityDTO, userAccountModel));
     }
 
     @Override
@@ -53,7 +61,9 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     public Optional<CustomerDTO> findOneByAccountId(UUID accountId) {
         Objects.requireNonNull(accountId);
 
-        return Optional.empty();
+        return findAll().stream()
+                .filter(dto -> dto.accountId().equals(accountId))
+                .findFirst();
     }
 
     @Override
@@ -71,7 +81,9 @@ public class CustomerRepositoryImpl implements CustomerRepository {
         if (!existsByKey(entityDTO.id()))
             throw new EntityNotFoundException("There is not such customer!");
 
-        customerDAO.save(CustomerModelConverter.fromDTO(entityDTO));
+        UserAccountModel userAccountModel = findUserAccountModel(entityDTO.accountId());
+
+        customerDAO.save(CustomerModelConverter.fromDTO(entityDTO, userAccountModel));
     }
 
     @Override
@@ -92,5 +104,12 @@ public class CustomerRepositoryImpl implements CustomerRepository {
         customerModel.setNickname(nickname);
 
         return customerDAO.exists(Example.of(customerModel));
+    }
+
+    private UserAccountModel findUserAccountModel(UUID accountId) {
+        RequestUserAccountDTO userAccountDTO = userAccountRepository.findOneByKey(accountId)
+                .orElseThrow(() -> new EntityNotFoundException("There is not such account!"));
+
+        return UserAccountModelConverter.fromDTO(userAccountDTO);
     }
 }

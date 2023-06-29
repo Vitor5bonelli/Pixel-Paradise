@@ -1,9 +1,7 @@
 package br.edu.ifsp.aluno.pw3s4.pixelparadise.persistence.customer;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import br.edu.ifsp.aluno.pw3s4.pixelparadise.persistence.useraccount.UserAccountModel;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -17,11 +15,15 @@ public class CustomerModel {
     private String nickname;
     @Column
     private LocalDate dateOfBirth;
+    @ManyToOne
+    @JoinColumn(name = "account_id")
+    private UserAccountModel userAccountModel;
 
-    public CustomerModel(UUID id, String nickname, LocalDate dateOfBirth) {
+    public CustomerModel(UUID id, String nickname, LocalDate dateOfBirth, UserAccountModel userAccountModel) {
         this.id = id;
         this.nickname = nickname;
         this.dateOfBirth = dateOfBirth;
+        this.userAccountModel = userAccountModel;
     }
 
     public CustomerModel() {
@@ -49,5 +51,13 @@ public class CustomerModel {
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public UserAccountModel getUserAccountModel() {
+        return userAccountModel;
+    }
+
+    public void setUserAccountModel(UserAccountModel userAccountModel) {
+        this.userAccountModel = userAccountModel;
     }
 }
