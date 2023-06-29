@@ -1,19 +1,16 @@
 package br.edu.ifsp.aluno.pw3s4.pixelparadise.persistence.gamekey;
 
-import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.entities.customer.Customer;
-import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.entities.game.Game;
 import jakarta.persistence.*;
 
-import java.util.Objects;
 import java.util.UUID;
 
+// todo: corrigir as fks
 @Entity
-@Table(name = "gamekey")
+@Table(name = "game_key")
 public class GameKeyModel {
     @Id
     @Column(nullable = false)
     private UUID gameId;
-
     @Id
     @Column(nullable = false)
     private UUID customerId;
