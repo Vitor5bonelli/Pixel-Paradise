@@ -1,5 +1,7 @@
 package br.edu.ifsp.aluno.pw3s4.pixelparadise.persistence.gamekey;
 
+import br.edu.ifsp.aluno.pw3s4.pixelparadise.persistence.customer.CustomerModel;
+import br.edu.ifsp.aluno.pw3s4.pixelparadise.persistence.game.GameModel;
 import jakarta.persistence.*;
 
 import java.util.UUID;
@@ -9,17 +11,19 @@ import java.util.UUID;
 @Table(name = "game_key")
 public class GameKeyModel {
     @Id
-    @Column(nullable = false)
-    private UUID gameId;
+    @ManyToOne
+    @JoinColumn(name = "gameId")
+    private GameModel gameModel;
     @Id
-    @Column(nullable = false)
-    private UUID customerId;
+    @ManyToOne
+    @JoinColumn(name = "customerId")
+    private CustomerModel customerModel;
     @Column(nullable = false)
     private Long priceInCents;
 
-    public GameKeyModel(UUID gameId, UUID customerId, Long priceInCents) {
-        this.gameId = gameId;
-        this.customerId = customerId;
+    public GameKeyModel(GameModel gameModel, CustomerModel customerModel, Long priceInCents) {
+        this.gameModel = gameModel;
+        this.customerModel = customerModel;
         this.priceInCents = priceInCents;
     }
 
@@ -27,20 +31,20 @@ public class GameKeyModel {
 
     }
 
-    public UUID getGameId() {
-        return gameId;
+    public GameModel getGameModel() {
+        return gameModel;
     }
 
-    public void setGameId(UUID gameId) {
-        this.gameId = gameId;
+    public void setGameModel(GameModel gameModel) {
+        this.gameModel = gameModel;
     }
 
-    public UUID getCustomerId() {
-        return customerId;
+    public CustomerModel getCustomerModel() {
+        return customerModel;
     }
 
-    public void setCustomerId(UUID customerId) {
-        this.customerId = customerId;
+    public void setCustomerModel(CustomerModel customerModel) {
+        this.customerModel = customerModel;
     }
 
     public final long getPriceInCents() {
