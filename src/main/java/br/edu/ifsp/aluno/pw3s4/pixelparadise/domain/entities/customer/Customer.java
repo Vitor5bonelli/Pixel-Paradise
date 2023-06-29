@@ -1,5 +1,6 @@
 package br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.entities.customer;
 
+import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.entities.account.UserAccount;
 import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.usecases.customer.CustomerDTO;
 
 import java.time.LocalDate;
@@ -11,6 +12,7 @@ public class Customer {
     private UUID id;
     private String nickname;
     private LocalDate dateOfBirth;
+    private UserAccount account;
 
     public Customer(UUID id, String nickname, LocalDate dateOfBirth) {
         this.id = id;
@@ -66,5 +68,15 @@ public class Customer {
             throw new IllegalArgumentException("The customer must have at least age of " + MINIMUM_AGE + "!");
 
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public UserAccount getAccount() {
+        return account;
+    }
+
+    public void setAccount(UserAccount account) {
+        Objects.requireNonNull(account);
+
+        this.account = account;
     }
 }
