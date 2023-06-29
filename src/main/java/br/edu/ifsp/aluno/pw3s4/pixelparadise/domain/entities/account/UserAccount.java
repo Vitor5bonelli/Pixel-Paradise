@@ -41,6 +41,10 @@ public class UserAccount {
         permissions.remove(permission);
     }
 
+    public final Set<UserPermission> getPermissionsSet() {
+        return Set.copyOf(permissions);
+    }
+
     public final UUID getId() {
         return id;
     }
@@ -77,8 +81,8 @@ public class UserAccount {
         this.email = email;
     }
 
-    public final Password getPassword() {
-        return password;
+    public final String getPasswordAsString() {
+        return password.toString();
     }
 
     public final void setPassword(Password password) {

@@ -15,7 +15,8 @@ final class Password {
         return new Password(password);
     }
 
-    String getPassword() {
+    @Override
+    public String toString() {
         return password;
     }
 }
