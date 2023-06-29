@@ -1,5 +1,6 @@
 package br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.entities.employee;
 
+import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.entities.account.UserAccount;
 import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.entities.util.CPF;
 
 import java.util.Objects;
@@ -11,6 +12,7 @@ public class Employee {
     private final CPF cpf;
     private String phoneNumber;
     private long wageInCents;
+    private UserAccount account;
 
     public Employee(UUID id, String preferredName, CPF cpf, String phoneNumber, long wageInCents) {
         Objects.requireNonNull(cpf);
@@ -72,5 +74,15 @@ public class Employee {
             throw new IllegalArgumentException("Wage must be a positive value!");
 
         this.wageInCents = wageInCents;
+    }
+
+    public UserAccount getAccount() {
+        return account;
+    }
+
+    public void setAccount(UserAccount account) {
+        Objects.requireNonNull(account);
+
+        this.account = account;
     }
 }

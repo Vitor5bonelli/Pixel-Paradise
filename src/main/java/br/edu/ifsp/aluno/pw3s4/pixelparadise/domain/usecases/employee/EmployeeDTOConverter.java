@@ -20,6 +20,6 @@ public final class EmployeeDTOConverter {
 
     public static EmployeeDTO toDTO(Employee employee) {
         return new EmployeeDTO(employee.getId(), employee.getPreferredName(), employee.getCpf().toString(),
-                employee.getPhoneNumber(), employee.getWageInCents());
+                employee.getPhoneNumber(), employee.getWageInCents(), employee.getAccount().getId());
     }
 }
