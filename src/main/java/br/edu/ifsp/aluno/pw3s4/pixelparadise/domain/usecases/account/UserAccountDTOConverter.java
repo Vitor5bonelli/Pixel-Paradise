@@ -15,7 +15,7 @@ public final class UserAccountDTOConverter {
                                 encoder.encodePassword(createUserAccountDTO.password()));
     }
 
-    public static RequestUserAccountDTO entityRequestToDTO(UserAccount userAccount) {
+    public static RequestUserAccountDTO entityToRequestDTO(UserAccount userAccount) {
         String[] permissions = (String[])userAccount.getPermissionsSet()
                                             .stream()
                                             .map(UserPermission::toString)
@@ -23,5 +23,10 @@ public final class UserAccountDTOConverter {
 
         return new RequestUserAccountDTO(userAccount.getId(), userAccount.getUsername(), userAccount.getEmail(),
                         userAccount.getPasswordAsString(), permissions);
+    }
+
+    public static ResponseUserAccountDTO requestDTOToResponseDTO(RequestUserAccountDTO requestUserAccountDTO) {
+        return new ResponseUserAccountDTO(requestUserAccountDTO.id(), requestUserAccountDTO.username(),
+                        requestUserAccountDTO.email(), requestUserAccountDTO.permissions());
     }
 }

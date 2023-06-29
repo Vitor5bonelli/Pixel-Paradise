@@ -28,7 +28,7 @@ public final class CreateUserAccountUseCase {
         userPermissionsGranter.getCustomerPermissionSet()
                 .forEach(userAccount::grantPermission);
 
-        userAccountRepository.save(UserAccountDTOConverter.entityRequestToDTO(userAccount));
+        userAccountRepository.save(UserAccountDTOConverter.entityToRequestDTO(userAccount));
 
         return userAccount.getId();
     }
@@ -42,7 +42,7 @@ public final class CreateUserAccountUseCase {
         userPermissionsGranter.getEmployeePermissionSet()
                 .forEach(userAccount::grantPermission);
 
-        userAccountRepository.save(UserAccountDTOConverter.entityRequestToDTO(userAccount));
+        userAccountRepository.save(UserAccountDTOConverter.entityToRequestDTO(userAccount));
 
         return userAccount.getId();
     }
@@ -56,7 +56,7 @@ public final class CreateUserAccountUseCase {
         userPermissionsGranter.getAdminPermissionSet()
                 .forEach(userAccount::grantPermission);
 
-        userAccountRepository.save(UserAccountDTOConverter.entityRequestToDTO(userAccount));
+        userAccountRepository.save(UserAccountDTOConverter.entityToRequestDTO(userAccount));
 
         return userAccount.getId();
     }
