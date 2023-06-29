@@ -1,6 +1,5 @@
 package br.edu.ifsp.aluno.pw3s4.pixelparadise.persistence.useraccount;
 
-import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.entities.account.UserPermission;
 import jakarta.persistence.*;
 
 
@@ -23,39 +22,18 @@ public class UserAccountModel {
     @ElementCollection
     @CollectionTable(name = "user_permissions", joinColumns = @JoinColumn(name = "id_game"))
     @Column(name = "permission")
-    private final Set<UserPermission> permissions = new HashSet<>();
+    private Set<String> permissions;
 
-    public UserAccountModel(UUID id, String username, String email, String password) {
+    public UserAccountModel(UUID id, String username, String email, String password, Set<String> permissions) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
+        this.permissions = permissions;
     }
 
     public UserAccountModel() {
 
-    }
-
-    public final boolean hasPermission(UserPermission permission) {
-        Objects.requireNonNull(permission);
-
-        return permissions.contains(permission);
-    }
-
-    public final void grantPermission(UserPermission permission) {
-        Objects.requireNonNull(permission);
-
-        permissions.add(permission);
-    }
-
-    public final void revokePermission(UserPermission permission) {
-        Objects.requireNonNull(permission);
-
-        permissions.remove(permission);
-    }
-
-    public final Set<UserPermission> getPermissionsSet() {
-        return Set.copyOf(permissions);
     }
 
     public final UUID getId() {
@@ -72,7 +50,7 @@ public class UserAccountModel {
         return username;
     }
 
-    private void setUsername(String username) {
+    public void setUsername(String username) {
         Objects.requireNonNull(username);
 
         if (username.isEmpty())
@@ -85,7 +63,7 @@ public class UserAccountModel {
         return email;
     }
 
-    private void setEmail(String email) {
+    public void setEmail(String email) {
         Objects.requireNonNull(email);
 
         if (email.isEmpty())
@@ -94,7 +72,7 @@ public class UserAccountModel {
         this.email = email;
     }
 
-    public final String getPasswordAsString() {
+    public final String getPassword() {
         return password;
     }
 
@@ -102,4 +80,11 @@ public class UserAccountModel {
         this.password = password;
     }
 
+    public Set<String> getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(Set<String> permissions) {
+        this.permissions = permissions;
+    }
 }
