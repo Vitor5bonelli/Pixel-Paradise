@@ -18,9 +18,9 @@ public class GameKeyModel {
     @Column(nullable = false)
     private UUID customerId;
     @Column(nullable = false)
-    private long priceInCents;
+    private Long priceInCents;
 
-    public GameKeyModel(UUID gameId, UUID customerId, long priceInCents) {
+    public GameKeyModel(UUID gameId, UUID customerId, Long priceInCents) {
         this.gameId = gameId;
         this.customerId = customerId;
         this.priceInCents = priceInCents;
