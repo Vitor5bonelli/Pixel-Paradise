@@ -8,5 +8,7 @@ import java.util.UUID;
 public interface CustomerRepository extends Repository<UUID, CustomerDTO> {
     Optional<CustomerDTO> findOneByNickname(String nickname);
 
+    Optional<CustomerDTO> findOneByAccountId(UUID accountId);
+
     boolean existsByNickname(String nickname);
 }
