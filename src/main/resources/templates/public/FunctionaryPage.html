@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Área do Funcionário</title>
 
-    <link rel="stylesheet" th:href="@{css/style functionary.css}">
+
+    <link rel="stylesheet" href="../../static/css/style functionary.css">
 
     <style>
         body{
@@ -38,7 +39,28 @@
             <input type="text" class="formInput" placeholder="Plataforma" name="platforms[]">
             <br>
             <input type="text" class="formInput" placeholder="Generos" name="genres[]">
+            <br><br>
+
+
+
+            <label for="opctionAction">Ação</label>
+            <input type="checkbox" class="opction" id="opctionAction">
+            <label for="opctionHorror">Terror</label>
+            <input type="checkbox" class="opction" id="opctionHorror">
+
             <br>
+            <label for="opctionLove">Romance</label>
+            <input type="checkbox" class="opction" id="opctionLove">
+            <label for="opctionSimulation">Simulação</label>
+            <input type="checkbox" class="opction" id="opctionSimulation">
+
+            <br>
+            <label for="opctionFantasy">Fantasia</label>
+            <input type="checkbox" class="opction" id="opctionFantasy">
+            <label for="opctionAdventure">Aventura</label>
+            <input type="checkbox" class="opction" id="opctionAdventure">
+
+
 
             <button class="btn" type="submit">
                 <strong>ENVIAR</strong>
@@ -56,27 +78,75 @@
 
         <hr>
 
-        <h2>Atualizar Jogo</h2>
-        <input type="text" class="formInput"  placeholder="Nome do Jogo">
-        <br>
-        <input type="text" class="formInput" placeholder="Data de Lançamento">
-        <br>
-        <input type="text" class="formInput" placeholder="Restrição de Idade">
-        <br>
-        <input type="text" class="formInput" placeholder="Preço">
-        <br>
+
+        <form>
+            <h2>Atualizar Jogo</h2>
+            <input type="text" class="formInput"  placeholder="Nome do Jogo">
+            <br>
+            <input type="text" class="formInput" placeholder="Data de Lançamento">
+            <br>
+            <input type="text" class="formInput" placeholder="Restrição de Idade">
+            <br>
+            <input type="text" class="formInput" placeholder="Preço">
+            <br><br>
+
+            <label for="opctionAction">Ação</label>
+            <input type="checkbox" class="opction" id="opctionAction">
+            <label for="opctionHorror">Terror</label>
+            <input type="checkbox" class="opction" id="opctionHorror">
+
+            <br>
+            <label for="opctionLove">Romance</label>
+            <input type="checkbox" class="opction" id="opctionLove">
+            <label for="opctionSimulation">Simulação</label>
+            <input type="checkbox" class="opction" id="opctionSimulation">
+
+            <br>
+            <label for="opctionFantasy">Fantasia</label>
+            <input type="checkbox" class="opction" id="opctionFantasy">
+            <label for="opctionAdventure">Aventura</label>
+            <input type="checkbox" class="opction" id="opctionAdventure">
+
+
+            <button class="btn" type="submit">
+                <strong>ENVIAR</strong>
+                <div id="container-stars2">
+                    <div id="stars2"></div>
+                </div>
+
+                <div id="glow2">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </button>
+        </form>
+
 
         <hr>
 
         <h2>Atualizar Funcionário</h2>
-        
-        <input type="text" class="formInput" placeholder="ID">
-        <br>
-        <input type="text" class="formInput" placeholder="Nome">
-        <br>
-        <input type="text" class="formInput" placeholder="Telefone">
-        <br>
-        <input type="text" class="formInput" placeholder="Endereço">
+
+        <form>
+            <input type="text" class="formInput" placeholder="ID">
+            <br>
+            <input type="text" class="formInput" placeholder="Nome">
+            <br>
+            <input type="text" class="formInput" placeholder="Telefone">
+            <br>
+            <input type="text" class="formInput" placeholder="Endereço">
+
+            <button class="btn" type="submit">
+                <strong>ENVIAR</strong>
+                <div id="container-stars3">
+                    <div id="stars3"></div>
+                </div>
+
+                <div id="glow3">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </button>
+        </form>
 
         <br><br>
 

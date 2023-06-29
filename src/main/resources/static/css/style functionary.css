@@ -16,17 +16,16 @@ body{
     text-align: center;
 }
 
-.main input{
-    margin-left: 300px;
+.main .formInput{
+    margin-left: 400px;
     margin-top: 10px;
-    margin-left: 10px;
     margin-bottom: 10px;
     width: 200px;
     height: 20px;
     border-style: solid;
 }
 
-input{
+.formInput{
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
     box-shadow: 0 0 10px rgb(163, 163, 163);
     transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
@@ -34,10 +33,6 @@ input{
 
 ::placeholder{
     color: black;
-}
-
-.formInput{
-    align-content: center;
 }
 
 .formInput:focus{
@@ -80,6 +75,28 @@ input{
     backdrop-filter: blur(1rem);
     border-radius: 5rem;
   }
+
+  #container-stars2 {
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      transition: 0.5s;
+      backdrop-filter: blur(1rem);
+      border-radius: 5rem;
+    }
+
+  #container-stars3 {
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      transition: 0.5s;
+      backdrop-filter: blur(1rem);
+      border-radius: 5rem;
+    }
   
   strong {
     z-index: 2;
@@ -91,6 +108,18 @@ input{
   }
   
   #glow {
+    position: absolute;
+    display: flex;
+    width: 12rem;
+  }
+
+  #glow2 {
+      position: absolute;
+      display: flex;
+      width: 12rem;
+  }
+
+  #glow3 {
     position: absolute;
     display: flex;
     width: 12rem;
@@ -138,6 +167,20 @@ input{
     width: 200rem;
     height: 200rem;
   }
+
+  #stars2 {
+      position: relative;
+      background: transparent;
+      width: 200rem;
+      height: 200rem;
+    }
+
+  #stars3 {
+      position: relative;
+      background: transparent;
+      width: 200rem;
+      height: 200rem;
+    }
   
   #stars::after {
     content: "";
@@ -148,11 +191,41 @@ input{
     height: 100%;
     animation: animStarRotate 90s linear infinite;
   }
+
+  #stars2::after {
+      content: "";
+      position: absolute;
+      top: -10rem;
+      left: -100rem;
+      width: 100%;
+      height: 100%;
+      animation: animStarRotate 90s linear infinite;
+    }
+
+  #stars3::after {
+      content: "";
+      position: absolute;
+      top: -10rem;
+      left: -100rem;
+      width: 100%;
+      height: 100%;
+      animation: animStarRotate 90s linear infinite;
+    }
   
   #stars::after {
     background-image: radial-gradient(#ffffff 1px, transparent 1%);
     background-size: 50px 50px;
   }
+
+  #stars2::after {
+      background-image: radial-gradient(#ffffff 1px, transparent 1%);
+      background-size: 50px 50px;
+    }
+
+  #stars3::after {
+      background-image: radial-gradient(#ffffff 1px, transparent 1%);
+      background-size: 50px 50px;
+    }
   
   #stars::before {
     content: "";
@@ -163,12 +236,44 @@ input{
     height: 500%;
     animation: animStar 60s linear infinite;
   }
-  
+
+  #stars2::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 170%;
+      height: 500%;
+      animation: animStar 60s linear infinite;
+    }
+
+  #stars3::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 170%;
+      height: 500%;
+      animation: animStar 60s linear infinite;
+    }
+
   #stars::before {
     background-image: radial-gradient(#ffffff 1px, transparent 1%);
     background-size: 50px 50px;
     opacity: 0.5;
   }
+
+  #stars2::before {
+      background-image: radial-gradient(#ffffff 1px, transparent 1%);
+      background-size: 50px 50px;
+      opacity: 0.5;
+    }
+
+  #stars3::before {
+      background-image: radial-gradient(#ffffff 1px, transparent 1%);
+      background-size: 50px 50px;
+      opacity: 0.5;
+    }
   
   @keyframes animStar {
     from {
@@ -220,3 +325,26 @@ input{
       box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
     }
   }
+
+label[for="opctionAction"], label[for="opctionLove"], label[for="opctionFantasy"]{
+    margin-left: 370px;
+}
+
+#opctionLove{
+    margin-left: 16px;
+}
+
+#opctionAction{
+    margin-left: 55px;
+}
+
+#opctionHorror{
+    margin-left: 43px;
+}
+
+#opctionAdventure{
+    margin-left: 16px;
+}
+
+
+
