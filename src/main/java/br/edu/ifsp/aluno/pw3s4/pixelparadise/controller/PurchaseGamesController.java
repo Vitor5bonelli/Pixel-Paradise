@@ -11,7 +11,7 @@ public class PurchaseGamesController {
     @GetMapping
     public String carregaPagina() {return "public/PurchaseGames";}
 
-    @GetMapping("css/login.css")
+    @GetMapping("css/estilo geral.css")
     public String getCss() {
         return "css/estilo geral.css";
     }
