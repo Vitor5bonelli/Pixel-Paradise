@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho</title>
-    <link rel="stylesheet" href="../../static/css/estilo%20geral.css">
+    <link rel="stylesheet" th:href="@{css/estilo geral.css}">
 
     <style>
         body{
@@ -23,7 +23,7 @@
         <ul class="navegador">
             <li id="id_navegador"><a href="Stock.html" >JOGOS</a></li>
             <li id="id_navegador"><a href="PurchaseGames.html">JOGOS COMPRADOS</a></li>
-            <li id="id_navegador"><a href="WishList.html" class="ativo">LISTA DE DESEJO</a></li>
+            <li id="id_navegador"><a th:href="@{wishlist}" class="ativo">LISTA DE DESEJO</a></li>
         </ul>
     </div>
 
