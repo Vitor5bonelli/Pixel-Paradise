@@ -36,17 +36,17 @@ public class UserAccountModel {
 
     }
 
-    public final UUID getId() {
+    public UUID getId() {
         return id;
     }
 
-    public final void setId(UUID id) {
+    public void setId(UUID id) {
         Objects.requireNonNull(id);
 
         this.id = id;
     }
 
-    public final String getUsername() {
+    public String getUsername() {
         return username;
     }
 
@@ -59,7 +59,7 @@ public class UserAccountModel {
         this.username = username;
     }
 
-    public final String getEmail() {
+    public String getEmail() {
         return email;
     }
 
@@ -72,11 +72,11 @@ public class UserAccountModel {
         this.email = email;
     }
 
-    public final String getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public final void setPassword(String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
