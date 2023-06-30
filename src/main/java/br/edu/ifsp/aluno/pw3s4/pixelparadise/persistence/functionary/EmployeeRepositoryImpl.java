@@ -79,11 +79,13 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     @Override
     public void deleteByKey(UUID key) {
+        Objects.requireNonNull(key);
 
+        employeeDAO.deleteById(key);
     }
 
     @Override
     public boolean existsByKey(UUID key) {
-        return false;
+        return employeeDAO.existsById(key);
     }
 }
