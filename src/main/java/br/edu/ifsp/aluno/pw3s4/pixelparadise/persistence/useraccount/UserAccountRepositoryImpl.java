@@ -5,6 +5,7 @@ import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.usecases.account.UserAccount
 import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.usecases.customer.CustomerRepository;
 import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.usecases.util.EntityAlreadyExistsException;
 import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.usecases.util.EntityNotFoundException;
+import br.edu.ifsp.aluno.pw3s4.pixelparadise.persistence.customer.CustomerDAO;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Repository;
 
@@ -16,11 +17,11 @@ import java.util.UUID;
 @Repository
 public class UserAccountRepositoryImpl implements UserAccountRepository {
     private final UserAccountDAO userAccountDAO;
-    private final CustomerRepository customerRepository;
+    private final CustomerDAO customerDAO;
 
-    public UserAccountRepositoryImpl(UserAccountDAO userAccountDAO, CustomerRepository customerRepository) {
+    public UserAccountRepositoryImpl(UserAccountDAO userAccountDAO, CustomerDAO customerDAO) {
         this.userAccountDAO = userAccountDAO;
-        this.customerRepository = customerRepository;
+        this.customerDAO = customerDAO;
     }
 
     @Override
@@ -98,9 +99,11 @@ public class UserAccountRepositoryImpl implements UserAccountRepository {
         if (maybeUserAccountModel.isEmpty())
             return false;
 
-        userAccountModel = maybeUserAccountModel.get();
+        UUID accountId = maybeUserAccountModel.get().getId();
 
-        return customerRepository.findOneByAccountId(userAccountModel.getId()).isPresent();
+        return customerDAO.findAll()
+                .stream()
+                .anyMatch(customerModel -> customerModel.getUserAccountModel().getId().equals(accountId));
     }
 
     // todo: implementar busca da conta por employee
