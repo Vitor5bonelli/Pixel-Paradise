@@ -21,9 +21,8 @@ public class RegisterCustomerPageController {
         return "css/login";
     }
 
-    @PostMapping
+    @PostMapping("registerClient")
     public String registerCustomer(CustomerDTO customerData){
-        System.out.println("Realizou Cadastro");
 
         /*
         Customer customer =
