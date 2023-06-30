@@ -7,7 +7,7 @@
     <title>Pixel Paradise</title>
 
 
-    <link rel="stylesheet" th:href="{css/estilo navegador.css}">
+    <link rel="stylesheet" th:href="@{css/estilo navegador.css}">
 
     <style>
         body{
@@ -26,9 +26,9 @@
 <body>
     <div>
         <ul class="navegador">
-            <li id="id_navegador"><a href="Stock.html" class="ativo">JOGOS</a></li>
-            <li id="id_navegador"><a href="PurchaseGames.html">JOGOS COMPRADOS</a></li>
-            <li id="id_navegador"><a href="WishList.html">LISTA DE DESEJO</a></li>
+            <li id="id_navegador"><a th:href="@{Stock}" class="ativo">JOGOS</a></li>
+            <li id="id_navegador"><a th:href="@{PurchaseGames}">JOGOS COMPRADOS</a></li>
+            <li id="id_navegador"><a th:href="@{WishList}">LISTA DE DESEJO</a></li>
         </ul>
     </div>
 
@@ -39,17 +39,17 @@
 
     <div>
         <ul class="livro">
-            <li id="exposicao"><img src="../../static/img/Devil%20May%20Cry.jpg"></li>
-            <li id="exposicao"><img src="../../static/img/Skyrim.jpg"></li>
-            <li id="exposicao"><img src="../../static/img/Spider%20Man.jpg"></li>
-            <li id="exposicao"><img src="../../static/img/Dragon%20Ball%20kakarot.jpg"></li>
+            <li id="exposicao"><img th:src="@{img/Devil May Cry.jpg}"></li>
+            <li id="exposicao"><img th:src="@{img/Skyrim.jpg}"></li>
+            <li id="exposicao"><img th:src="@{img/Spider Man.jpg}"></li>
+            <li id="exposicao"><img th:src="@{img/Dragon Ball kakarot.jpg}"></li>
         </ul>
 
         <ul class="livro">
-            <li id="exposicao"><img src="../../static/img/AC%20Valhalla.jpg"></li>
-            <li id="exposicao"><img src="../../static/img/Red%20Dead%20Redeption%202.jpg"></li>
-            <li id="exposicao"><img src="../../static/img/AC%20Odyssey.jpg"></li>
-            <li id="exposicao"><img src="../../static/img/AC%20Black%20Flag.jpg"></li>
+            <li id="exposicao"><img th:src="@{img/AC Valhalla.jpg}"></li>
+            <li id="exposicao"><img th:src="@{img/Red Dead Redeption 2.jpg}"></li>
+            <li id="exposicao"><img th:src="@{img/AC Odyssey.jpg}"></li>
+            <li id="exposicao"><img th:src="@{img/AC Black Flag.jpg}"></li>
         </ul>
     </div>
 

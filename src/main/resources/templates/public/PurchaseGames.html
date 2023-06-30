@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogos Comprados</title>
 
-    <link rel="stylesheet" th:href="{css/estilo geral.css}">
+    <link rel="stylesheet" th:href="@{css/estilo geral.css}">
 
     <style>
         body{
@@ -22,9 +22,9 @@
 <body>
     <div>
         <ul class="navegador">
-            <li id="id_navegador"><a th:href="{Stock}" >JOGOS</a></li>
-            <li id="id_navegador"><a th:href="{PurchaseGames}" class="ativo">JOGOS COMPRADOS</a></li>
-            <li id="id_navegador"><a th:href="WishList}">LISTA DE DESEJO</a></li>
+            <li id="id_navegador"><a th:href="@{Stock}" >JOGOS</a></li>
+            <li id="id_navegador"><a th:href="@{PurchaseGames}" class="ativo">JOGOS COMPRADOS</a></li>
+            <li id="id_navegador"><a th:href="@{WishList}">LISTA DE DESEJO</a></li>
         </ul>
     </div>
 

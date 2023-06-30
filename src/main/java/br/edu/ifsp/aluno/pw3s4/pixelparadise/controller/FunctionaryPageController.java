@@ -22,6 +22,11 @@ public class FunctionaryPageController {
 
     @GetMapping
     public String loadPage(){
+        return "public/FunctionaryPage.html";
+    }
+
+    @GetMapping("css/style functionary.css")
+    public String getCss(){
         return "public/FunctionaryPage";
     }
 

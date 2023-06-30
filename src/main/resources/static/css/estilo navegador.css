@@ -91,3 +91,13 @@ ul, ol{
     margin-left:500px;
     box-shadow: 0 0 10px rgb(254, 0, 207);
 }
+
+.listGames{
+    text-align: center;
+}
+
+table{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
