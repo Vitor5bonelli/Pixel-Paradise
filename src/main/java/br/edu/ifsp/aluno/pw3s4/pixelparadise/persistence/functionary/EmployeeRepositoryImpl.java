@@ -1,9 +1,14 @@
 package br.edu.ifsp.aluno.pw3s4.pixelparadise.persistence.functionary;
 
+import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.usecases.account.RequestUserAccountDTO;
+import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.usecases.account.UserAccountRepository;
 import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.usecases.employee.EmployeeDTO;
 import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.usecases.employee.EmployeeRepository;
 import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.usecases.util.EntityAlreadyExistsException;
+import br.edu.ifsp.aluno.pw3s4.pixelparadise.domain.usecases.util.EntityNotFoundException;
 import br.edu.ifsp.aluno.pw3s4.pixelparadise.persistence.customer.CustomerModelConverter;
+import br.edu.ifsp.aluno.pw3s4.pixelparadise.persistence.useraccount.UserAccountModel;
+import br.edu.ifsp.aluno.pw3s4.pixelparadise.persistence.useraccount.UserAccountModelConverter;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,7 +20,11 @@ import java.util.UUID;
 public class EmployeeRepositoryImpl implements EmployeeRepository {
     private final EmployeeDAO employeeDAO;
 
-    public EmployeeRepositoryImpl(EmployeeDAO employeeDAO){this.employeeDAO = employeeDAO;}
+    private final UserAccountRepository userAccountRepository;
+
+    public EmployeeRepositoryImpl(EmployeeDAO employeeDAO, UserAccountRepository userAccountRepository){this.employeeDAO = employeeDAO;
+        this.userAccountRepository = userAccountRepository;
+    }
 
     @Override
     public void save(EmployeeDTO entityDTO) {
@@ -26,6 +35,27 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
         employeeDAO.save(EmployeeModelConverter.fromDTO(entityDTO));
     }
+
+    @Override
+    public void update(EmployeeDTO entityDTO) {
+        Objects.requireNonNull(entityDTO);
+
+        if (!existsByKey(entityDTO.id()))
+            throw new EntityAlreadyExistsException("There is not such employee!");
+
+
+        employeeDAO.save(EmployeeModelConverter.fromDTO(entityDTO));
+    }
+
+    private UserAccountModel findUserAccountModel(UUID accountId) {
+        RequestUserAccountDTO userAccountDTO = userAccountRepository.findOneByKey(accountId)
+                .orElseThrow(() -> new EntityNotFoundException("There is not such account!"));
+
+        return UserAccountModelConverter.fromDTO(userAccountDTO);
+    }
+
+    @Override
+    public Optional<EmployeeDTO> findOneByKey(UUID key) {return null;}
 
     @Override
     public Optional<EmployeeDTO> findOneByCPF(String cpf) {
@@ -43,18 +73,8 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     @Override
-    public Optional<EmployeeDTO> findOneByKey(UUID key) {
-        return Optional.empty();
-    }
-
-    @Override
     public List<EmployeeDTO> findAll() {
         return null;
-    }
-
-    @Override
-    public void update(EmployeeDTO entityDTO) {
-
     }
 
     @Override
