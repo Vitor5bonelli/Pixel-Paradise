@@ -9,7 +9,7 @@ public class GameKeyModelConverter {
     public static GameKeyModel fromDTO(GameKeyDTO gameKeyDTO, GameModel gameModel, CustomerModel customerModel) {
         if (gameKeyDTO == null)
             return null;
-        return new GameKeyModel(gameModel, customerModel, gameKeyDTO.priceInCents());
+        return new GameKeyModel(new GameKeyModelId(gameModel, customerModel), gameKeyDTO.priceInCents());
     }
 
     public static GameKeyDTO toDTO(GameKeyModel gameKeyModel) {

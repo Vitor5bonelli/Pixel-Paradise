@@ -10,20 +10,13 @@ import java.util.UUID;
 @Entity
 @Table(name = "game_key")
 public class GameKeyModel {
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "gameId")
-    private GameModel gameModel;
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "customerId")
-    private CustomerModel customerModel;
+    @EmbeddedId
+    private GameKeyModelId id;
     @Column(nullable = false)
     private Long priceInCents;
 
-    public GameKeyModel(GameModel gameModel, CustomerModel customerModel, Long priceInCents) {
-        this.gameModel = gameModel;
-        this.customerModel = customerModel;
+    public GameKeyModel(GameKeyModelId id, Long priceInCents) {
+        this.id = id;
         this.priceInCents = priceInCents;
     }
 
@@ -32,19 +25,15 @@ public class GameKeyModel {
     }
 
     public GameModel getGameModel() {
-        return gameModel;
-    }
-
-    public void setGameModel(GameModel gameModel) {
-        this.gameModel = gameModel;
+        return id.getGameModel();
     }
 
     public CustomerModel getCustomerModel() {
-        return customerModel;
+        return id.getCustomerModel();
     }
 
-    public void setCustomerModel(CustomerModel customerModel) {
-        this.customerModel = customerModel;
+    public void setId(GameKeyModelId id) {
+        this.id = id;
     }
 
     public final long getPriceInCents() {

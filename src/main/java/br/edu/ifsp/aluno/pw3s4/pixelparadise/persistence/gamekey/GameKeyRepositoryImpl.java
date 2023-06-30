@@ -54,9 +54,8 @@ public class GameKeyRepositoryImpl implements GameKeyRepository {
 
         GameModel gameModel = findGameModel(gameId);
         CustomerModel customerModel = findCustomerModel(customerId);
-        GameKeyModel gameKeyModel = new GameKeyModel(gameModel, customerModel, null);
 
-        return gameKeyDAO.findOne(Example.of(gameKeyModel))
+        return gameKeyDAO.findById(new GameKeyModelId(gameModel, customerModel))
                 .map(GameKeyModelConverter::toDTO);
     }
 
@@ -64,13 +63,9 @@ public class GameKeyRepositoryImpl implements GameKeyRepository {
     public List<GameKeyDTO> findSomeByGameId(UUID gameId) {
         Objects.requireNonNull(gameId);
 
-        GameKeyModel gameKeyModel = new GameKeyModel();
-        GameModel gameModel = findGameModel(gameId);
-        gameKeyModel.setGameModel(gameModel);
-
-        return gameKeyDAO.findAll(Example.of(gameKeyModel))
+        return findAll()
                 .stream()
-                .map(GameKeyModelConverter::toDTO)
+                .filter(dto -> dto.gameId().equals(gameId))
                 .toList();
     }
 
@@ -78,13 +73,9 @@ public class GameKeyRepositoryImpl implements GameKeyRepository {
     public List<GameKeyDTO> findSomeByCustomerId(UUID customerId) {
         Objects.requireNonNull(customerId);
 
-        GameKeyModel gameKeyModel = new GameKeyModel();
-        CustomerModel customerModel = findCustomerModel(customerId);
-        gameKeyModel.setCustomerModel(customerModel);
-
-        return gameKeyDAO.findAll(Example.of(gameKeyModel))
+        return findAll()
                 .stream()
-                .map(GameKeyModelConverter::toDTO)
+                .filter(dto -> dto.customerId().equals(customerId))
                 .toList();
     }
 
@@ -114,9 +105,8 @@ public class GameKeyRepositoryImpl implements GameKeyRepository {
     public boolean existsGameKyByGameIdAndCustomerId(UUID gameId, UUID customerId) {
         GameModel gameModel = findGameModel(gameId);
         CustomerModel customerModel = findCustomerModel(customerId);
-        GameKeyModel gameKeyModel = new GameKeyModel(gameModel, customerModel, null);
 
-        return gameKeyDAO.exists(Example.of(gameKeyModel));
+        return gameKeyDAO.existsById(new GameKeyModelId(gameModel, customerModel));
     }
 
     private GameModel findGameModel(UUID gameId) {
@@ -130,6 +120,6 @@ public class GameKeyRepositoryImpl implements GameKeyRepository {
         CustomerDTO customerDTO = customerRepository.findOneByKey(customerId)
                 .orElseThrow(() -> new EntityNotFoundException("There is not such customer!"));
 
-        return CustomerModelConverter.fromDTO(customerDTO);
+        return CustomerModelConverter.fromDTO(customerDTO, null);
     }
 }
