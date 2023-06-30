@@ -33,6 +33,11 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     @Override
+    public Optional<EmployeeDTO> findOneByNickname(String nickname) {
+        return Optional.empty();
+    }
+
+    @Override
     public boolean existsByCPF(String cpf) {
         return false;
     }
