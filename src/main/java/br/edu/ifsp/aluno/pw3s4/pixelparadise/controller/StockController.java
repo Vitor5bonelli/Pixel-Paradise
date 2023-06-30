@@ -12,6 +12,6 @@ public class StockController {
     @GetMapping
     public String carregaPagina(){return "public/Stock";}
 
-    @GetMapping
-    public String getCss(){return  "css/estilo geral.css";}
+    @GetMapping("css/estilo geral.css")
+    public String getCss(){return  "css/estilo geral";}
 }

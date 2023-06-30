@@ -13,7 +13,7 @@ public class RegisterFunctionaryPageController {
         return "public/RegisterFunctionary";
     }
 
-    @GetMapping
+    @GetMapping("css/login.css")
     public String loadCss(){
         return "css/login";
     }

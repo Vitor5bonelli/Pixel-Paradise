@@ -13,6 +13,6 @@ public class PurchaseGamesController {
 
     @GetMapping("css/estilo geral.css")
     public String getCss() {
-        return "css/estilo geral.css";
+        return "css/estilo geral";
     }
 }

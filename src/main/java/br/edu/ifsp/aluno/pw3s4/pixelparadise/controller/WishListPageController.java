@@ -13,7 +13,7 @@ public class WishListPageController {
         return "public/WishList";
     }
 
-    @GetMapping
+    @GetMapping("css/estilo geral.css")
     public String loadCss(){
         return "css/estilo geral";
     }
